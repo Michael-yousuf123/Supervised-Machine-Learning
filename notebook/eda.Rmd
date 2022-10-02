@@ -1,0 +1,140 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+plot(cars)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+```{r}
+
+```
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+```{r}
+# start projects by installing necessery packages
+library(datasets)
+```
+```{r}
+# load iris dataset to the environment
+data("iris")
+head(iris)
+```
+```{r}
+tail(iris)
+```
+```{r}
+dim(iris)
+# we see that the data have 150 rows and 5 features
+```
+
+
+```{r}
+sapply(iris, class)
+# we will see that all attributes of numeric and one categorical variable
+# in the dataset
+```
+
+
+```{r}
+str(iris)
+```
+
+
+```{r}
+is.na.data.frame(iris)
+```
+
+
+```{r}
+duplicated.data.frame(iris)
+```
+
+
+```{r}
+# summary and visualization
+summary(iris)
+```
+```{r}
+# install.packages('ggplot2')
+library(ggplot2)
+```
+
+```{r}
+df <- subset(iris, select = c(Sepal.Length, Sepal.Width, Petal.Length, Petal.Width))
+```
+
+```{r}
+df
+```
+```{r}
+library(reshape2)
+```
+
+```{r}
+ggplot(data = melt(df), aes(x=Variable, y=value)) + geom_boxplot(aes(fill=variable))
+```
+```{r}
+ggplot(data = iris, aes(x = Species, fill = Species)) +
+    geom_bar()
+```
+
+```{r}
+ggplot(iris, aes(x = data)) +
+  geom_histogram(aes(y = ..density..), binwidth = 5, colour= "black", fill = "white") +
+  geom_density(fill="blue", alpha = .2) 
+```
+
+```{r}
+library(ggpubr)
+```
+
+```{r}
+a <- ggplot(data = iris, aes(x = Petal.Length)) +
+    geom_histogram( color = "red", fill = "blue", alpha = 0.1) + geom_density()
+b <- ggplot(data = iris, aes(x = Petal.Width)) +
+    geom_histogram( color = "red", fill = "blue", alpha = 0.1) + geom_density()
+c <- ggplot(data = iris, aes(x = Sepal.Length)) +
+    geom_histogram( color = "red", fill = "blue", alpha = 0.1) + geom_density()
+d <- ggplot(data = iris, aes(x = Sepal.Width)) +
+    geom_histogram( color = "red", fill = "blue", alpha = 0.1) +geom_density()
+ggarrange(a, b, c, d + rremove("x.text"), 
+          labels = c("a", "b", "c", "d"),
+          ncol = 2, nrow = 2)
+```
+
+```{r}
+# training the model
+library(caret)
+```
+
+```{r}
+
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+```{r}
+# summerize data and data visualizations
+
+# prepare data
+# model training
+# evaluate model performance 
+# improve model
+# prediction on test data
+```
+
